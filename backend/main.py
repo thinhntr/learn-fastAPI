@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -19,9 +20,11 @@ class Item(BaseModel):
     userInput: str
 
 
-@app.get("/")
-def read_root():
-    return {"name": "LearnFastAPI"}
+@app.get("/", response_class=HTMLResponse)
+def main():
+    with open("../frontend/index.html") as f:
+        mainpage = f.read()
+    return mainpage
 
 
 class Model:
