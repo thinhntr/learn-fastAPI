@@ -1,0 +1,18 @@
+<div id="contacts" class="overflow-x-auto">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contact in data.contacts %}
+      <tr>
+        <td>{{contact.uname}}</td>
+        <td>{{contact.email}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
